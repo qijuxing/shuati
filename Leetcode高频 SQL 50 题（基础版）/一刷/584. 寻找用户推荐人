@@ -1,0 +1,7 @@
+select name
+from Customer
+where referee_id <> 2 or referee_id is null
+
+注意：空值也要考虑到
+
+https://leetcode.cn/problems/find-customer-referee/?envType=study-plan-v2&envId=sql-free-50
