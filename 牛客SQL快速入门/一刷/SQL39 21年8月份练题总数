@@ -1,0 +1,7 @@
+select count(distinct device_id) as did_cnt,
+count(question_id) as question_cnt
+from question_practice_detail
+where date >= '2021-08-01'
+
+注：distinct 在所求值前面
+https://www.nowcoder.com/practice/b8f30b239b454ed490367b53ea95607d?tpId=199&tqId=2002632&sourceUrl=%2Fexam%2Foj
