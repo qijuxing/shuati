@@ -1,2 +1,6 @@
 1.注意空值的筛选，不忽略
 2.SUBSTRING_INDEX（） 函数截取字符串
+3.cast函数转换数据类型
+  CAST(expression AS TYPE);
+  其中，expression 是要转换的值，TYPE 是目标数据类型。支持的类型包括：BINARY，CHAR，DATE，DATETIME，TIME，DECIMAL，SIGNED，UNSIGNED。
+4.
