@@ -3,4 +3,5 @@
 3.cast函数转换数据类型
   CAST(expression AS TYPE);
   其中，expression 是要转换的值，TYPE 是目标数据类型。支持的类型包括：BINARY，CHAR，DATE，DATETIME，TIME，DECIMAL，SIGNED，UNSIGNED。
-4.
+4.统计数目除了直接用COUNT（），还可用sum（if( ，1 ，0)）(即符合条件的相加)
+5.
