@@ -1,0 +1,10 @@
+left join / right join / join 被连接的表与主表匹配之后，结果为空，会自动填充null
+
+SELECT 
+  unique_id,
+  name
+FROM employees ee
+LEFT JOIN employeeUNI ei
+  ON ee.id = ei.id 
+
+https://leetcode.cn/problems/replace-employee-id-with-the-unique-identifier/?envType=study-plan-v2&envId=sql-free-50
