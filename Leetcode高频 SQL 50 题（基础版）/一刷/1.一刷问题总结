@@ -5,4 +5,5 @@
   其中，expression 是要转换的值，TYPE 是目标数据类型。支持的类型包括：BINARY，CHAR，DATE，DATETIME，TIME，DECIMAL，SIGNED，UNSIGNED。
 4.统计数目除了直接用COUNT（），还可用sum（if( ，1 ，0)）(即符合条件的相加)
 5.left join / right join / join 被连接的表与主表匹配之后，结果为空，会自动填充null
-6.
+6.统计字符长度LENGTH()
+7.
