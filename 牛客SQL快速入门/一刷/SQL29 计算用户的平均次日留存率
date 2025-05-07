@@ -1,0 +1,17 @@
+#留存率=第二天和第一天都在的用户数/第一天用户数
+#第一天的用户:distinct 原表.devide_id
+#第一天和第二天都在的用户:distinct 复制表[date_add(date1,interval 1 day)].devide_id 
+
+SELECT 
+  COUNT(date2.device_id)/COUNT(date1.device_id) AS avg_ret
+FROM 
+   (SELECT DISTINCT device_id, date 
+   FROM question_practice_detail) AS date1
+LEFT JOIN  
+  (SELECT DISTINCT device_id, date 
+  FROM question_practice_detail) AS date2
+ON date1.device_id = date2.device_id AND date2.date = DATE_ADD(date1.date, INTERVAL 1 DAY)
+
+
+
+https://www.nowcoder.com/practice/126083961ae0415fbde061d7ebbde453?tpId=199&tqId=1975681&sourceUrl=%2Fexam%2Foj%3Fpage%3D1%26tab%3DSQL%25E7%25AF%2587%26topicId%3D199
