@@ -1,0 +1,13 @@
+统计数目除了直接用COUNT（），还可用sum（if( ，1 ，0)）(即符合条件的相加)
+
+SELECT 
+    u.device_id,
+    u.university,
+    COUNT(q.question_id) AS question_cnt,
+    SUM(IF(q.result="right",1,0)) AS right_question_cnt
+FROM user_profile u
+LEFT JOIN question_practice_detail q
+    ON u.device_id=q.device_id 
+    AND MONTH(q.date)=8
+WHERE university="复旦大学"
+GROUP BY u.device_id
