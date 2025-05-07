@@ -1,0 +1,5 @@
+#统计字符长度LENGTH()
+
+SELECT tweet_id
+FROM tweets
+WHERE LENGTH(content)>15
