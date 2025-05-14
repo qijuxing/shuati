@@ -1,0 +1,17 @@
+##提取完整日期时间部分DATE_FORMAT（数据，‘格式’）(重设时间格式）
+#t.t_cus=c.c_id
+#t_time=2023.month
+#t_amount（groupby月份orderby正序）
+#TOM2023年所有月份的消费金额
+
+SELECT
+  DATE_FORMAT(t.t_time, '%Y-%m') AS time,
+  SUM(t.t_amount) AS total
+FROM trade t
+LEFT JOIN customer c 
+  ON t.t_cus = c.c_id
+WHERE t.t_type = 1
+  AND c.c_name = 'Tom'
+  AND t.t_time LIKE '2023-%'
+GROUP BY DATE_FORMAT(t.t_time, '%Y-%m')
+ORDER BY time
