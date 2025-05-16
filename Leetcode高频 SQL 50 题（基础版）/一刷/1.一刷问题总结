@@ -9,3 +9,7 @@
 7.外部查询中，直接引用子查询的显示名称（子查询的select语句）
 8.添加百分号：CONCAT(ROUND(逾期客户数/总用户数 * 100, 1), '%')
     CONCAT()函数用于字符串拼接,将舍入后的数值与百分号%拼接。例如：20.3 会被格式化为 "20.3%"
+9.处理时间差计算：
+（1）TIMESTAMPDIFF(unit, start, end)：处理 DATETIME 或 TIMESTAMP 类型的数据（包含日期和时间）。支持多种时间单位（SECOND、MINUTE、HOUR、DAY 等）。
+     例如：TIMESTAMPDIFF(HOUR, '2023-01-01 08:00:00', '2023-01-01 09:30:00') 返回 1.5 小时。
+（2）TIME_TO_SEC(time)-TIME_TO_SEC(time)：仅处理 TIME 类型的数据（格式如 HH:MM:SS）。例如：TIME_TO_SEC('01:30:00') 返回 5400 秒（即 1.5 小时）。
