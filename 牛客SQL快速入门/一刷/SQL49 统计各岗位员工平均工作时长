@@ -1,0 +1,13 @@
+处理时间差计算：
+（1）TIMESTAMPDIFF(unit, start, end)：处理 DATETIME 或 TIMESTAMP 类型的数据（包含日期和时间）。支持多种时间单位（SECOND、MINUTE、HOUR、DAY 等）。
+     例如：TIMESTAMPDIFF(HOUR, '2023-01-01 08:00:00', '2023-01-01 09:30:00') 返回 1.5 小时。
+（2）TIME_TO_SEC(time)-TIME_TO_SEC(time)：仅处理 TIME 类型的数据（格式如 HH:MM:SS）。例如：TIME_TO_SEC('01:30:00') 返回 5400 秒（即 1.5 小时）。
+
+SELECT 
+  s.post,
+  ROUND(AVG(TIMESTAMPDIFF(SECOND, a.first_clockin, a.last_clockin) / 3600), 3) AS work_hours
+FROM staff_tb s
+LEFT JOIN attendent_tb a ON s.staff_id = a.staff_id
+GROUP BY s.post
+ORDER BY work_hours DESC
+
