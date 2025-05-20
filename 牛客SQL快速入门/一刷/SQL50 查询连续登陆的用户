@@ -1,0 +1,17 @@
+#连续登录=day1+day2+day3
+#LEAD(DATE(log_time),1)：获取当前行的下一行的日期值
+#LEAD(DATE(log_time),2)：获取当前行的下两行的日期值
+SELECT 
+    user_id
+FROM
+  (SELECT 
+    user_id,
+    DATE(log_time) AS day1,
+    LEAD(DATE(log_time),1)OVER(PARTITION BY user_id ORDER BY log_time) AS day2,
+    LEAD(DATE(log_time),2)OVER(PARTITION BY user_id ORDER BY log_time) AS day3
+   FROM login_tb) AS day
+WHERE DATEDIFF(day2,day1)=1
+  AND DATEDIFF(day3,day2)=1
+  AND user_id IN (SELECT user_id
+                  FROM register_tb)
+ORDER BY user_id
