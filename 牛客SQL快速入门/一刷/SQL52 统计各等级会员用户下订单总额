@@ -1,0 +1,9 @@
+#COALESCE(字段,0）确保不出现null值，若出现会用0代替
+SELECT 
+  u.vip,
+  COALESCE(SUM(o.order_price), 0) AS order_total
+FROM order_tb o
+RIGHT JOIN uservip_tb u
+ON o.user_id = u.user_id
+GROUP BY u.vip
+ORDER BY order_total DESC
